@@ -1,0 +1,165 @@
+---
+title: Public outreach
+layout: default
+permalink: outreach/
+
+header-image: /images/outreach/vulga_ecoles_2.jpg
+---
+<h1>Outreach</h1><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Communication</title>
+</head>
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 30%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.9; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container */
+.container {
+  position: absolute;
+  display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+</div>
+<div class="row">
+  <div class="column">
+    <img src="../images/outreach/ecoles_bruxelles_1.jpg" alt="Outreach session on the solar system at the 4saisons school in Brussels" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="../images/outreach/aot_crew.jpg" alt="Astronomy on Tap Lausanne committee" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="../images/outreach/aot_montreal.jpg" alt="Leading a game at Astronomy on Tap Montreal" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+
+<body>
+    <section>
+
+        <div>
+            <h3>Astronomy on Tap (AoT) Montreal </h3>
+            <p>
+            AoT Montreal are held monthly by professional astronomers and in collaboration with several institutes
+             (CRAQ, iREx and the Trottier Space
+            Institute). Each event includes two short presentations by local researchers, 
+            trivia games with prizes for the winners, and offers a great opportunity
+            to ask all your deep space questions, from black holes to aliens, to our
+            large crew of passionate astronomers! </p>
+            </li>Check out the <a href="https://astronomyontap.org/locations/montreal-qc-canada/"
+            target="_blank" style="color: cornflowerblue; text-decoration: none;"><em> next events</em></a></li>.
+        </div>
+        <br>
+        <div>
+            <h3>ESERO Belgium - <a href="https://eserobelgium.be/"
+                target="_blank" style="color: darkgray; text-decoration: none;"><em>Space in class</em></a> </h3>
+            <p> As a member of ESERO (The European Space Education Resource Office) project in Belgium,
+               I performed outreach in
+                several schools of Brussels on the topic of space, the solar system, and the planet Mars. The goal is to
+                raise the interest of pupils in space/astrophysics and make them feel more comfortable and familiar with
+                sciences in general.
+            </p>
+        </div>
+        <br>
+        <div>
+            <h3>Club M.A.R.S. President (2020-2022) </h3>
+
+            <p> Former president of an association of scientific outreach (~100 members) centered around the planet Mars and missions
+                dedicated to the exploration and study of the Red Planet in Toulouse, France.</p>
+            <ul>
+                <li>Organisation weekly conferences on human space exploration and planetary astrophysics.</li>
+                <li>Management of scientific communication activities in Toulouse high-schools.</li>
+                <li>Mentoring scientific projects led by the Club M.A.R.S.</li>
+            </ul>
+        </div>
+        <br>
+        <div>
+            <h3>Space@YourService <a href="https://spaceatyourservice.ch/en/" target="_blank"
+              style="color: cornflowerblue; text-decoration: none;"><em> (website) </em></a></h3> 
+            <p>Founding member and former vice-president of an association promoting scientific communication about space and
+                astronomy. Organisation of several events in Lausanne consisting in short talks on space sciences for all
+                audiences:</p>
+            <ul>
+            
+                <li><em>Space Oddity</em>. Invited speakers: Manu Stalport, Aurelien Verdier, and Emilie Hertig.</li>
+                <li><em>The Eagle has landed, 50 years of Man on the Moon</em>. Invited speakers: Swiss astronaut Claude
+                    Nicollier and Dr. Apurva Oza.</li>
+                <li><em>From Earth to Outer Space</em>. Invited speakers: Astronaut Claude Nicollier, Dr. Camille Pirat,
+                    Dr. Florian Gallien, and Dr. Daniel Angerhausen.</li>
+                <li><em>Aiming for the Moon</em>. Invited speakers: Martine Harmel, George Meylan, and Dr. Daniel
+                    Angerhausen.</li>
+            </ul>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
+

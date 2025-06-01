@@ -1,0 +1,200 @@
+/* ---------- general design: body ---------- */
+html, body {
+  margin: 0;
+  font-family: Cambria, Calibri, Arial, sans-serif;
+  color: #555753;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* ---------- general design: header ---------- */
+header {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+
+    width: 100;
+    padding: 0px 0%;
+
+    background-color: white;  /* #333; */
+    box-shadow: 0px 0px 10px gray;
+}
+
+/* ---------- general design: nav ---------- */
+nav {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+
+    padding: 0 10%;
+    text-transform: uppercase;
+}
+nav ul {
+    float: right;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+nav li {
+  float: left;
+}
+nav li a {
+  display: block;
+  color: #555;
+  text-align: center;
+  padding: 15px 15px;
+  text-decoration: none;
+}
+nav li a:active {
+  color: #777;
+  background-color: #222;
+}
+nav li a:hover {
+  color: white;
+  background-color: #555;
+}
+
+.header-banner {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+
+  width: 100%;
+  position: relative;
+
+  color: white;
+  font-family: Roboto, Arial;
+  font-size: 24pt;
+}
+.header-banner img {
+  width: 100%;
+  max-height: 320px;
+  opacity: 1.0;
+  object-fit: cover;
+  transition: 0.3s;
+}
+.header-banner img:hover {
+  opacity: 0.9;
+}
+.header-title {
+  margin-left: 10%;
+  margin-bottom: 20px;
+  padding: 20px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.5)
+}
+
+
+/* ---------- general design: main ---------- */
+main {
+    width: 70%;
+    margin: auto;
+    padding: 25px;
+
+    color: #333;
+}
+main a {
+  color: #111;
+  text-decoration: none;
+}
+main a:hover {
+  text-decoration: underline;
+}
+main h1 {
+  margin-top: 40px;
+}
+main h2 {
+  margin-top: 60px;
+}
+
+/* ---------- responsive design ---------- */
+@media (max-width: 1200px) {
+  nav {
+    padding: 0 25px;
+  }
+
+  .header-banner a {
+    padding: 0 25px;
+  }
+
+  main {
+    width: 98%;
+    margin: 0;
+    padding: 5px;
+  }
+}
+
+/* ---------- individual design: profile picture ---------- */
+.profile {
+  width: 300px;
+  margin: 20px;
+  float: left;
+}
+
+.profile img {
+  width: 100%;
+  border-radius: 100px;
+  object-fit: cover;
+  opacity: 1.0;
+}
+
+/* ---------- individual design: plot ---------- */
+.plot {
+  width: 390px;
+  margin: 5px;
+  float: left;
+}
+.plot img {
+  width: 100%;
+  object-fit: cover;
+  opacity: 1.0;
+}
+
+.plot_2 {
+  width: 250px;
+  height: 400px;
+  margin: 15px;
+  float: left;
+}
+
+.plot_2 img {
+  width: 80%;
+  object-fit: cover;
+  opacity: 1.0;
+}
+
+/* ---------- individual design: table ---------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table tr:nth-child(odd) {
+  background-color: #eeeeee;
+}
+.table td {
+  padding: 12px 24px 12px 24px;
+  border: 1px solid #eeeeee;
+  text-align: left;
+}
+
+/* ---------- individual design: card ---------- */
+.card {
+  width: 320px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  display: inline-block;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card img {
+  width: 100%;
+  }
+.card-text {
+  padding: 2px 16px;
+}
