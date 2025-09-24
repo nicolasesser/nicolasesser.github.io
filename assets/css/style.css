@@ -156,6 +156,18 @@ main h2 {
 }
 
 
+.plot_center_big {
+  width: 500px;
+  text-align: center;   /* centers inline elements like <img> */
+  margin: 1em auto;        /* adds vertical spacing */
+}
+
+.plot_center_big img {
+  display: inline-block;
+  max-width: 100%;      /* optional, makes it responsive */
+  height: auto;
+}
+
 
 .plot_center {
   width: 390px;
