@@ -160,7 +160,7 @@ main h2 {
 .plot_center {
   width: 390px;
   text-align: center;   /* centers inline elements like <img> */
-  margin: 1em 0;        /* adds vertical spacing */
+  margin: 1em auto;        /* adds vertical spacing */
 }
 
 .plot_center img {
