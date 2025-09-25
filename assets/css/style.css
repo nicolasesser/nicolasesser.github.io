@@ -310,15 +310,19 @@ main h2 {
 }
 
 /* ------- VIDEOS ------- */
-<style>
 .video-container {
-  text-align: center; /* centers the iframe */
-  margin: 1em 0;      /* optional vertical spacing */
+  position: relative;
+  width: 80%;          /* adjust size as needed */
+  max-width: 900px;    /* max width of the video */
+  margin: 1em auto;    /* center horizontally */
+  padding-top: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
 }
 
 .video-container iframe {
-  max-width: 100%;    /* makes it responsive */
-  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
-</style>
-
