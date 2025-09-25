@@ -309,3 +309,16 @@ main h2 {
   cursor: pointer;
 }
 
+/* ------- VIDEOS ------- */
+<style>
+.video-container {
+  text-align: center; /* centers the iframe */
+  margin: 1em 0;      /* optional vertical spacing */
+}
+
+.video-container iframe {
+  max-width: 100%;    /* makes it responsive */
+  height: auto;
+}
+</style>
+
