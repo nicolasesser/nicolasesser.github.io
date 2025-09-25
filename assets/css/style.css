@@ -169,6 +169,36 @@ main h2 {
 }
 
 
+.plot_center_enormous {
+  width: 1000px;
+  text-align: center;   /* centers inline elements like <img> */
+  margin: 1em auto;        /* adds vertical spacing */
+}
+
+.plot_center_enormous img {
+  display: inline-block;
+  max-width: 100%;      /* optional, makes it responsive */
+  height: auto;
+}
+
+
+.plot_side_by_side {
+  display: flex;
+  justify-content: center;   /* center the two images as a group */
+  gap: 1em;                  /* spacing between images */
+  margin: 1em auto;
+  max-width: 1000px;         /* adjust as needed */
+}
+
+.plot_side_by_side img {
+  max-width: 100%;   /* makes it responsive */
+  height: auto;
+  flex: 1 1 0;       /* allow images to shrink/grow evenly */
+  object-fit: contain;
+}
+
+
+
 .plot_center {
   width: 390px;
   text-align: center;   /* centers inline elements like <img> */
