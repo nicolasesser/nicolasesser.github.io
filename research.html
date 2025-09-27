@@ -46,8 +46,51 @@ header-image: /images/header_research.jpg
 </div>
 
     <p>
-      Using this theoretical phenomenon, it is possible to place constraints on the primordial black hole model: if they were too abundant, they would have destroyed most stars in some very specific environments: ultra-faint dwarf galaxies. These galaxies are very small and old satellites of the Milky Way which are thought to possess large amounts of dark matter. The destruction process is dependent on the mass of the star: heavier stars are more likely to capture primordial black holes (because the capture is a gravitational process which, as explained above, is stronger with increasing mass). Therefore, heavy stars are more likely to be destroyed, as can be seen on the plot above. Now let us imagine that an ultra-faint contains a population of stars. From observations, we know that there are more light stars than heavy ones, as depicted on the figure below.
+      Using this theoretical phenomenon, it is possible to place constraints on the primordial black hole model: if they were too abundant, they would have destroyed most stars in some very specific environments: ultra-faint dwarf galaxies. These galaxies are very small and old satellites of the Milky Way which are thought to possess large amounts of dark matter. The destruction process is dependent on the mass of the star: heavier stars are more likely to capture primordial black holes (because the capture is a gravitational process which, as explained above, is stronger with increasing mass). Therefore, heavy stars are more likely to be destroyed, as can be seen on the plot above. The box below explains what happens to stars in ultra-faint dwarf galaxies when asteroid-mass primordial black holes are present.
+
+  </p>
+
+  <!-- Clickable box -->
+  <div class="click-box" id="clickBox">
+    <p id="text">
+      Let us imagine that an ultra-faint dwarf galaxy contains a population of stars. From observations, we know that there are more light stars than heavy ones, as depicted on the figure below:
     </p>
+    <div class="plot_center">
+      <img id="figure" src="/images/stars_noPBH.png" alt="Stars destroyed by PBHs">
+    </div>
+    <div class="click-hint">Click me!</div>
+  </div>
+
+  <script>
+    const texts = [
+      "Let us imagine that an ultra-faint dwarf galaxy contains a population of stars. From observations, we know that there are more light stars than heavy ones, as depicted on the figure below:",
+      "Now, if primordial black holes exist, some stars would capture them as follows:",
+      "Then, the infected stars would be accreted by the primordial black holes, with heavy stars more likely to be destroyed, like this:",
+      "Then, the remaining population, which we observe today with our telescopes, would be:"
+    ];
+
+    const figures = [
+      "/images/stars_noPBH.png",
+      "/images/stars_PBHs.png",
+      "/images/stars_PBHs_cancelled.png",
+      "/images/stars_PBHs_destroyed.png"
+    ];
+
+    let index = 0;
+    const textElement = document.getElementById("text");
+    const figureElement = document.getElementById("figure");
+    const box = document.getElementById("clickBox");
+
+    box.addEventListener("click", () => {
+      index = (index + 1) % texts.length;
+      textElement.textContent = texts[index];
+      figureElement.src = figures[index];
+    });
+  </script>
+
+
+
+
 
 
 <div class="plot_center">
@@ -89,44 +132,3 @@ header-image: /images/header_research.jpg
     <p>
       Recently, I worked on a side project on my own. In this project, I study the possibility that primordial black holes, if they make up a subdominant fraction of the dark matter, may be surrounded by small dark matter clouds (also called minihalos or spikes). If this is true, then stars passing by will be slowed down by the gravitational friction due to the DM cloud. This may result in the creation of binary systems, with one of the members being a PBH and the other a star. I then estimated the number of such binaries we should see, either in the form of X-ray binaries in the Milky Way, or as GW events if the stars collapse into compact objects and then later on merge with the PBH they pair with. I found that these could yield non-negligible rates for both types of events. Therefore, if the Universe comprises PBHs, and if these PBHs are surrounded by dark matter, we may someday observe one of these binaries!
     </p>
-
-
-
-
-  <!-- Clickable box -->
-  <div class="click-box" id="clickBox">
-    <p id="text">
-      Now, if primordial black holes exist, they would destroy the stars, mostly the heavy ones as follows:
-    </p>
-    <div class="plot_center">
-      <img id="figure" src="/images/stars_PBHs_cancelled.png" alt="Stars destroyed by PBHs">
-    </div>
-    <div class="click-hint">Click to see more</div>
-  </div>
-
-  <script>
-    const texts = [
-      "Now, if primordial black holes exist, they would destroy the stars, mostly the heavy ones as follows:",
-      "Another scenario: lighter stars would be less affected.",
-      "In this case, galaxies evolve differently over time.",
-      "Finally, PBHs may leave no stars in some regions."
-    ];
-
-    const figures = [
-      "/images/stars_PBHs_cancelled.png",
-      "/images/stars_PBHs_alt1.png",
-      "/images/stars_PBHs_alt2.png",
-      "/images/stars_PBHs_alt3.png"
-    ];
-
-    let index = 0;
-    const textElement = document.getElementById("text");
-    const figureElement = document.getElementById("figure");
-    const box = document.getElementById("clickBox");
-
-    box.addEventListener("click", () => {
-      index = (index + 1) % texts.length;
-      textElement.textContent = texts[index];
-      figureElement.src = figures[index];
-    });
-  </script>
