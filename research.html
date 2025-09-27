@@ -27,8 +27,8 @@ header-image: /images/header_research.jpg
     </p>
 
     <p>
-      For decades, physicists have explored various theories to explain dark matter. Among the proposed candidates, primordial black holes are particularly intriguing. These theoretical black holes could have formed shortly after the Big Bang, when the Universe was extremely hot and dense, and they remain a viable possibility for constituting dark matter. My current research focuses on the phenomenology of primordial black holes; that is, the different ways they could affect the observable Universe. By studying these potential effects, we can test the model and, ultimately, advance toward identifying the true nature of dark matter, whether it consists of primordial black holes or something else entirely. Below is a figure which shows the current constraints on primordial black holes, as a function of the mass of these black holes, which can be seen as a free parameter of the model.
-    </p>
+      For decades, physicists have explored various theories to explain dark matter. Among the proposed candidates, primordial black holes are particularly intriguing. These theoretical black holes could have formed shortly after the Big Bang, when the Universe was extremely hot and dense, and they remain a viable possibility for constituting dark matter. My current research focuses on the phenomenology of primordial black holes; that is, the different ways they could affect the observable Universe. By studying these potential effects, we can test the model and, ultimately, advance toward identifying the true nature of dark matter, whether it consists of primordial black holes or something else entirely. The figure below shows current constraints on primordial black holes. The y-axis represents their abundance; for example, if f(M) = 1, it means that all of the dark matter is made of primordial black holes. The x-axis shows their mass, which in theory can range from a fraction of a gram to billions of times the mass of the sun. In practice, most mass ranges have been excluded through various astrophysical measurements. These excluded regions are represented as colored areas on the plot (plot taken from<a href="https://iopscience.iop.org/article/10.1088/1361-6633/ac1e31" target="_blank" style="color: darkblue;"> this paper </a>).
+</p>
 
 
 <div class="plot_center_big">
@@ -37,8 +37,8 @@ header-image: /images/header_research.jpg
 
 
     <p>
-      More specifically, I focus on primordial black hole whose mass would be of around 10<sup>20</sup> grams. These black holes are very heavy, compared to human standards, but their size is microscopic! If they exist, they could interact with stars in environments where we expect a lot of dark matter to be present. Stars could capture these black holes, which would then accrete, i.e. absorb, the stellar material, and turn them into stellar mass black holes.
-      Using theoretical arguments and calculations, I computed the probability of stars in a given environment to be accreted by primordial black holes, as shown on the following plot.
+      More specifically, I focus on primordial black hole whose mass would be of around 10<sup>20</sup> grams. As you can see on the plot above, there are no constraints on the model yet in this range of masses. These black holes are very heavy, compared to human standards, but their size is microscopic! If they exist, they could interact with stars in environments where we expect a lot of dark matter to be present. Stars could capture these black holes, which would then accrete, i.e. absorb, the stellar material, and turn them into stellar mass black holes.
+      Using theoretical arguments and calculations, I computed the probability of stars in a given environment to be accreted by primordial black holes, as shown on the following plot. It shows, on the y-axis, the probability that stars are destroyed by primordial black holes (don’t worry, this does not apply to our Sun!), plotted as a function of the stellar mass on the x-axis, expressed in units of the Sun’s mass.
     </p>
 
 <div class="plot_center_big">
@@ -46,7 +46,7 @@ header-image: /images/header_research.jpg
 </div>
 
     <p>
-      Using this theoretical phenomenon, it is possible to place constraints on the primordial black hole model: if they were too abundant, they would have destroyed most stars in some very specific environments: ultra-faint dwarf galaxies. These galaxies are very small and old satellites of the Milky Way which are thought to possess large amounts of dark matter. The destruction process is dependent on the mass of the star: heavier stars are more likely to capture primordial black holes (because the capture is a gravitational process which, as explained above, is stronger with increasing mass). Therefore, heavy stars are more likely to be destroyed. Now let us imagine that an ultra-faint contains a population of stars. From observations, we know that there are more light stars than heavy ones, as depicted on the figure below.
+      Using this theoretical phenomenon, it is possible to place constraints on the primordial black hole model: if they were too abundant, they would have destroyed most stars in some very specific environments: ultra-faint dwarf galaxies. These galaxies are very small and old satellites of the Milky Way which are thought to possess large amounts of dark matter. The destruction process is dependent on the mass of the star: heavier stars are more likely to capture primordial black holes (because the capture is a gravitational process which, as explained above, is stronger with increasing mass). Therefore, heavy stars are more likely to be destroyed, as can be seen on the plot above. Now let us imagine that an ultra-faint contains a population of stars. From observations, we know that there are more light stars than heavy ones, as depicted on the figure below.
     </p>
 
 
@@ -89,3 +89,46 @@ header-image: /images/header_research.jpg
     <p>
       Recently, I worked on a side project on my own. In this project, I study the possibility that primordial black holes, if they make up a subdominant fraction of the dark matter, may be surrounded by small dark matter clouds (also called minihalos or spikes). If this is true, then stars passing by will be slowed down by the gravitational friction due to the DM cloud. This may result in the creation of binary systems, with one of the members being a PBH and the other a star. I then estimated the number of such binaries we should see, either in the form of X-ray binaries in the Milky Way, or as GW events if the stars collapse into compact objects and then later on merge with the PBH they pair with. I found that these could yield non-negligible rates for both types of events. Therefore, if the Universe comprises PBHs, and if these PBHs are surrounded by dark matter, we may someday observe one of these binaries!
     </p>
+
+
+
+
+  <!-- Clickable box -->
+  <div class="click-box" id="clickBox">
+    <p id="text">
+      Now, if primordial black holes exist, they would destroy the stars, mostly the heavy ones as follows:
+    </p>
+    <div class="plot_center">
+      <img id="figure" src="/images/stars_PBHs_cancelled.png" alt="Stars destroyed by PBHs">
+    </div>
+  </div>
+
+  <script>
+    // Array of texts
+    const texts = [
+      "Now, if primordial black holes exist, they would destroy the stars, mostly the heavy ones as follows:",
+      "Another scenario: lighter stars would be less affected.",
+      "In this case, galaxies evolve differently over time.",
+      "Finally, PBHs may leave no stars in some regions."
+    ];
+
+    // Array of image paths (replace with your real image files)
+    const figures = [
+      "/images/stars_PBHs_cancelled.png",
+      "/images/stars_PBHs_alt1.png",
+      "/images/stars_PBHs_alt2.png",
+      "/images/stars_PBHs_alt3.png"
+    ];
+
+    let index = 0;
+    const textElement = document.getElementById("text");
+    const figureElement = document.getElementById("figure");
+    const box = document.getElementById("clickBox");
+
+    box.addEventListener("click", () => {
+      index = (index + 1) % texts.length;
+      textElement.textContent = texts[index];
+      figureElement.src = figures[index];
+    });
+  </script>
+
