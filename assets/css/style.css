@@ -203,13 +203,41 @@ main h2 {
 .plot_center {
   width: 390px;
   text-align: center;   /* centers inline elements like <img> */
-  margin: 1em auto;        /* adds vertical spacing */
+  margin: 1em auto;     /* adds vertical spacing */
 }
 
 .plot_center img {
   display: inline-block;
-  max-width: 100%;      /* optional, makes it responsive */
+  max-width: 100%;
   height: auto;
+}
+
+/* Clickable box */
+.click-box {
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;        /* center text and image */
+  width: 420px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 2em auto;
+  position: relative;        /* for the click-hint */
+}
+
+.click-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Optional small "click hint" */
+.click-hint {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 10px;
+  font-style: italic;
 }
 
 
