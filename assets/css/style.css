@@ -184,25 +184,27 @@ main h2 {
 
 .plot_side_by_side {
   display: flex;
-  justify-content: center;   /* center images as a group */
+  justify-content: center;   /* center all images as a group */
   gap: 1em;                  /* spacing between images */
   margin: 1em auto;
-  max-width: 500px;          /* default for 2 images */
+  max-width: 500px;          /* good size for 2 images */
   max-height: 300px;
 }
 
-.plot_side_by_side.three {
-  max-width: 700px;          /* slightly wider for 3 images, but more packed */
-}
-
 .plot_side_by_side img {
-  max-width: 100%;   /* responsive */
   height: auto;
-  flex: 1 1 0;       /* shrink/grow evenly */
   object-fit: contain;
+
+  /* Key changes ↓ */
+  flex: 0 0 auto;            /* don’t stretch images */
+  max-width: calc(50% - 0.5em); /* fits 2 images nicely */
 }
 
-
+/* When there are 3 images, pack them more tightly */
+.plot_side_by_side img:nth-last-child(3):first-child ~ img,
+.plot_side_by_side img:nth-last-child(3):first-child {
+  max-width: calc(33.33% - 0.67em);
+}
 
 
 .plot_center {
