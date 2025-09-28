@@ -203,7 +203,7 @@ main h2 {
 
 /* When there are 2 images, cap container width so they don’t spread too far */
 .plot_side_by_side.two img {
-  max-height: 400px;         /* optional: a bit smaller for 2 */
+  max-height: 350px;         /* optional: a bit smaller for 2 */
 }
 
 /* When there are 3 images, same height but they’ll fit tighter */
