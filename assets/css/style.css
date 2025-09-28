@@ -184,18 +184,24 @@ main h2 {
 
 .plot_side_by_side {
   display: flex;
-  justify-content: center;   /* keep the group centered */
+  justify-content: center;   /* center images as a group */
   gap: 1em;                  /* spacing between images */
   margin: 1em auto;
-  max-width: 900px;          /* still gives room, but images won’t stretch too wide */
+  max-width: 500px;          /* default for 2 images */
+  max-height: 300px;
+}
+
+.plot_side_by_side.three {
+  max-width: 700px;          /* slightly wider for 3 images, but more packed */
 }
 
 .plot_side_by_side img {
-  flex: 0 1 30%;             /* each image takes up ~30% max */
-  max-width: 30%;            /* cap width so they don’t blow up */
+  max-width: 100%;   /* responsive */
   height: auto;
+  flex: 1 1 0;       /* shrink/grow evenly */
   object-fit: contain;
 }
+
 
 
 
