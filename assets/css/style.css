@@ -184,17 +184,16 @@ main h2 {
 
 .plot_side_by_side {
   display: flex;
-  justify-content: center;   /* center the two images as a group */
+  justify-content: center;   /* keep the group centered */
   gap: 1em;                  /* spacing between images */
   margin: 1em auto;
-  max-width: 500px;         /* adjust as needed */
-  max-height: 300px;
+  max-width: 900px;          /* still gives room, but images won’t stretch too wide */
 }
 
 .plot_side_by_side img {
-  max-width: 100%;   /* makes it responsive */
+  flex: 0 1 30%;             /* each image takes up ~30% max */
+  max-width: 30%;            /* cap width so they don’t blow up */
   height: auto;
-  flex: 1 1 0;       /* allow images to shrink/grow evenly */
   object-fit: contain;
 }
 
