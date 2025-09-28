@@ -185,26 +185,32 @@ main h2 {
 .plot_side_by_side {
   display: flex;
   justify-content: center;   /* center all images as a group */
+  align-items: center;       /* align portrait and landscape bottoms */
   gap: 1em;                  /* spacing between images */
   margin: 1em auto;
-  max-width: 750px;          /* good size for 2 images */
+  max-width: 750px;
   max-height: 450px;
 }
 
 .plot_side_by_side img {
-  height: auto;
+  flex: 0 0 auto;           
   object-fit: contain;
 
-  /* Key changes ↓ */
-  flex: 0 0 auto;            /* don’t stretch images */
-  max-width: calc(50% - 0.5em); /* fits 2 images nicely */
+  /* New key: fix height instead of width */
+  max-height: 450px;         /* all images match in height */
+  width: auto;               /* width adjusts to aspect ratio */
 }
 
-/* When there are 3 images, pack them more tightly */
-.plot_side_by_side img:nth-last-child(3):first-child ~ img,
-.plot_side_by_side img:nth-last-child(3):first-child {
-  max-width: calc(33.33% - 0.67em);
+/* When there are 2 images, cap container width so they don’t spread too far */
+.plot_side_by_side.two img {
+  max-height: 400px;         /* optional: a bit smaller for 2 */
 }
+
+/* When there are 3 images, same height but they’ll fit tighter */
+.plot_side_by_side.three img {
+  max-height: 350px;
+}
+
 
 
 .plot_center {
