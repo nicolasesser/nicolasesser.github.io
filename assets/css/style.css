@@ -187,8 +187,8 @@ main h2 {
   justify-content: center;   /* center all images as a group */
   gap: 1em;                  /* spacing between images */
   margin: 1em auto;
-  max-width: 500px;          /* good size for 2 images */
-  max-height: 300px;
+  max-width: 750px;          /* good size for 2 images */
+  max-height: 450px;
 }
 
 .plot_side_by_side img {
