@@ -356,7 +356,7 @@ main h2 {
   width: 70%;            /* smaller relative width */
   max-width: 600px;      /* lower cap on large screens */
   margin: 1em auto;      /* centers horizontally */
-  padding-top: 56.25%;   /* 16:9 aspect ratio */
+  padding-top: 40%;   /* 16:9 aspect ratio */
 }
 
 .video-container iframe {
