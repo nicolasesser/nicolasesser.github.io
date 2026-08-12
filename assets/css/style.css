@@ -136,6 +136,13 @@ main h2 {
   float: left;
 }
 
+
+.profile small {
+  width: 150px;
+  margin: 20px;
+  float: left;
+}
+
 .profile img {
   width: 100%;
   border-radius: 100px;
