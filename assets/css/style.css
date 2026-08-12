@@ -137,12 +137,13 @@ main h2 {
 }
 
 .profilesmall {
-  width: 50px;
+  width: 150px;
   margin: 20px;
   float: left;
 }
 
-.profile img {
+.profile img,
+.profilesmall img {
   width: 100%;
   border-radius: 100px;
   object-fit: cover;
