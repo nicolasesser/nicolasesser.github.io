@@ -219,6 +219,36 @@ main h2 {
 }
 
 
+.plot_side_by_side_small {
+  display: flex;
+  justify-content: center;   /* center all images as a group */
+  align-items: center;       /* align portrait and landscape bottoms */
+  gap: 1em;                  /* spacing between images */
+  margin: 1em auto;
+  max-width: 375px;
+  max-height: 225px;
+}
+
+.plot_side_by_side_small img {
+  flex: 0 0 auto;           
+  object-fit: contain;
+
+  /* New key: fix height instead of width */
+  max-height: 225px;         /* all images match in height */
+  width: auto;               /* width adjusts to aspect ratio */
+}
+
+/* When there are 2 images, cap container width so they don’t spread too far */
+.plot_side_by_side_small.two img {
+  max-height: 175px;         /* optional: a bit smaller for 2 */
+}
+
+/* When there are 3 images, same height but they’ll fit tighter */
+.plot_side_by_side_small.three img {
+  max-height: 175px;
+}
+
+
 
 .plot_center {
   width: 390px;
