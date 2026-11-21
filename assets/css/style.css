@@ -4,7 +4,17 @@
 :root {
   --content-width: 1000px;   /* max width of the text column on large screens */
   --gutter: 24px;            /* side margin; shrinks on phones (see bottom) */
-  --link-color: #349AD5;     /* colour of every link in the page content */
+  --link-color: #8ECDF1;     /* colour of every link in the page content
+                                (lighter shade of #349AD5, readable on the dark background) */
+
+  /* colour theme */
+  --bg: #404E5C;                       /* page background */
+  --bg-header: #36424E;                /* menu bar, slightly darker */
+  --bg-raised: #4A5968;                /* boxes and table stripes */
+  --text: #F1F3F5;                     /* body text (soft white) */
+  --text-strong: #FFFFFF;              /* headings */
+  --text-muted: #C5CDD5;               /* hints, secondary text */
+  --line: rgba(255, 255, 255, 0.15);   /* borders and separators */
 }
 
 *, *::before, *::after {
@@ -19,9 +29,13 @@ html {
 html, body {
   margin: 0;
   font-family: Cambria, Calibri, Arial, sans-serif;
-  color: #555753;
+  color: var(--text);
   line-height: 1.5;
-  background: white;
+  background: var(--bg);
+}
+hr {
+  border: 0;
+  border-top: 1px solid var(--line);
 }
 
 /* Never let media overflow the screen */
@@ -37,8 +51,8 @@ header {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: white;
-  box-shadow: 0px 0px 10px gray;
+  background-color: var(--bg-header);
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.45);
   text-align: left;
 }
 
@@ -58,18 +72,18 @@ nav ul {
 }
 nav li a {
   display: block;
-  color: #555;
+  color: var(--text);
   text-align: center;
   padding: 15px 15px;
   text-decoration: none;
 }
 nav li a:active {
-  color: #777;
-  background-color: #222;
+  color: var(--text-muted);
+  background-color: rgba(0, 0, 0, 0.25);
 }
 nav li a:hover {
-  color: white;
-  background-color: #555;
+  color: var(--text-strong);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .header-banner {
@@ -99,17 +113,17 @@ nav li a:hover {
   text-decoration: none;
   text-align: left;
   line-height: 1.25;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(54, 66, 78, 0.72);   /* --bg-header, see-through */
 }
 .header-name {
   display: block;
-  color: #222;
+  color: var(--text-strong);
   font-size: clamp(24px, 5vw, 43px);
   font-weight: bold;
 }
 .header-subtitle {
   display: block;
-  color: #444;
+  color: var(--text);
   font-size: clamp(15px, 2.8vw, 24px);
 }
 
@@ -119,7 +133,7 @@ main {
   max-width: var(--content-width);
   margin: 0 auto;
   padding: 10px var(--gutter) 40px;
-  color: #333;
+  color: var(--text);
   text-align: justify;
   overflow-wrap: break-word;
 }
@@ -129,7 +143,7 @@ main::after {           /* contain floated photos */
   clear: both;
 }
 main a {
-  color: #111;
+  color: inherit;
   text-decoration: none;
 }
 main a[href] {
@@ -142,6 +156,7 @@ main h1,
 main h2 {
   text-align: left;
   line-height: 1.25;
+  color: var(--text-strong);
 }
 main h1 {
   margin-top: 40px;
@@ -205,6 +220,7 @@ main h2 {
   display: inline-block;
   max-width: 100%;
   height: auto;
+  border-radius: 6px;
 }
 
 
@@ -238,18 +254,25 @@ main h2 {
 .plot_side_by_side_small.two img,
 .plot_side_by_side_small.three img  { max-height: 175px; }
 
+/* Logos are dark on transparent: show them on white tiles on the dark background */
+.plot_side_by_side_small img {
+  background: white;
+  padding: 8px;
+  border-radius: 8px;
+}
+
 
 /* Clickable box */
 .click-box {
-  background: #fff;
-  border: 2px solid #ccc;
+  background: var(--bg-raised);
+  border: 2px solid var(--line);
   border-radius: 10px;
   padding: 20px;
   text-align: center;
   width: 100%;
   max-width: 420px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   margin: 2em auto;
   position: relative;
@@ -257,12 +280,12 @@ main h2 {
 
 .click-box:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
 }
 
 .click-hint {
   font-size: 0.85em;
-  color: #666;
+  color: var(--text-muted);
   margin-top: 10px;
   font-style: italic;
 }
@@ -288,11 +311,11 @@ main h2 {
   border-collapse: collapse;
 }
 .table tr:nth-child(odd) {
-  background-color: #eeeeee;
+  background-color: var(--bg-raised);
 }
 .table td {
   padding: 12px 24px 12px 24px;
-  border: 1px solid #eeeeee;
+  border: 1px solid var(--line);
   text-align: left;
   vertical-align: top;
 }
@@ -301,7 +324,8 @@ main h2 {
 .card {
   width: 320px;
   max-width: 100%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background: var(--bg-raised);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
   transition: 0.3s;
   display: inline-block;
 }
@@ -381,7 +405,7 @@ main h2 {
 }
 nav {
   view-transition-name: site-nav;
-  background: white;
+  background: var(--bg-header);
 }
 .header-title {
   view-transition-name: site-title;
