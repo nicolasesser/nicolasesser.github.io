@@ -4,6 +4,7 @@
 :root {
   --content-width: 1000px;   /* max width of the text column on large screens */
   --gutter: 24px;            /* side margin; shrinks on phones (see bottom) */
+  --link-color: #349AD5;     /* colour of every link in the page content */
 }
 
 *, *::before, *::after {
@@ -130,6 +131,9 @@ main::after {           /* contain floated photos */
 main a {
   color: #111;
   text-decoration: none;
+}
+main a[href] {
+  color: var(--link-color);
 }
 main a:hover {
   text-decoration: underline;
