@@ -370,6 +370,58 @@ main h2 {
 
 
 /* =========================================================
+   Page transitions: pages slide left/right like phone home
+   screens, following the order of the menu. The menu and the
+   title box stay still while the rest slides.
+   Works in Chrome, Edge and Safari; other browsers just load
+   the page normally.
+   ========================================================= */
+@view-transition {
+  navigation: auto;
+}
+nav {
+  view-transition-name: site-nav;
+  background: white;
+}
+.header-title {
+  view-transition-name: site-title;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Going to a tab further right in the menu */
+html:active-view-transition-type(forward)::view-transition-old(root) {
+  animation-name: slide-out-to-left;
+}
+html:active-view-transition-type(forward)::view-transition-new(root) {
+  animation-name: slide-in-from-right;
+}
+/* Going to a tab further left in the menu */
+html:active-view-transition-type(backward)::view-transition-old(root) {
+  animation-name: slide-out-to-right;
+}
+html:active-view-transition-type(backward)::view-transition-new(root) {
+  animation-name: slide-in-from-left;
+}
+
+@keyframes slide-out-to-left   { to   { transform: translateX(-100%); } }
+@keyframes slide-in-from-right { from { transform: translateX(100%); } }
+@keyframes slide-out-to-right  { to   { transform: translateX(100%); } }
+@keyframes slide-in-from-left  { from { transform: translateX(-100%); } }
+
+/* Respect the "reduce motion" accessibility setting */
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
+
+/* =========================================================
    Responsive design
    ========================================================= */
 
