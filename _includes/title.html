@@ -1,5 +1,5 @@
 <div class="header-banner">
-  <img src="{{ page.header-image }}" alt="">
+  <img src="{{ page.header-image | relative_url }}" alt="" fetchpriority="high">
   <a class="header-title" href="{{ site.url }}">
     <span class="header-name">Nicolas Esser</span>
     <span class="header-subtitle">Dark Matter Astrophysicist</span>

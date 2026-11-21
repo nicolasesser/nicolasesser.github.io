@@ -17,6 +17,10 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
         <script src="{{ '/assets/js/transitions.js?v=' | append: site.github.build_revision | relative_url }}"></script>
+        {% if page.header-image %}
+        <!-- load the banner first so it is ready when the page slides in -->
+        <link rel="preload" as="image" href="{{ page.header-image | relative_url }}" fetchpriority="high">
+        {% endif %}
 
         <link rel="icon" href="{{ '/blackhole.ico' | relative_url }}" type="image/x-icon">
 
