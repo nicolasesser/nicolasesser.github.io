@@ -1,43 +1,59 @@
+/* =========================================================
+   Layout tokens: change these to adjust the whole site
+   ========================================================= */
+:root {
+  --content-width: 1000px;   /* max width of the text column on large screens */
+  --gutter: 24px;            /* side margin; shrinks on phones (see bottom) */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* ---------- general design: body ---------- */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 html, body {
   margin: 0;
   font-family: Cambria, Calibri, Arial, sans-serif;
   color: #555753;
   line-height: 1.5;
-  text-align: justify;
+  background: white;
+}
+
+/* Never let media overflow the screen */
+img, iframe, video {
+  max-width: 100%;
+}
+img {
+  height: auto;
 }
 
 /* ---------- general design: header ---------- */
 header {
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-
-    width: 100;
-    padding: 0px 0%;
-
-    background-color: white;  /* #333; */
-    box-shadow: 0px 0px 10px gray;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 0px 10px gray;
+  text-align: left;
 }
 
 /* ---------- general design: nav ---------- */
 nav {
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-
-    padding: 0 10%;
-    text-transform: uppercase;
+  padding: 0 var(--gutter);
+  text-transform: uppercase;
 }
 nav ul {
-    float: right;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-nav li {
-  float: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
 }
 nav li a {
   display: block;
@@ -56,47 +72,60 @@ nav li a:hover {
 }
 
 .header-banner {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-
-  width: 100%;
   position: relative;
-
+  width: 100%;
   color: white;
-  font-family: Roboto, Arial;
-  font-size: 24pt;
+  font-family: Roboto, Arial, sans-serif;
 }
 .header-banner img {
+  display: block;
   width: 100%;
-  max-height: 320px;
-  opacity: 1.0;
+  height: clamp(180px, 28vw, 320px);
   object-fit: cover;
+  opacity: 1.0;
   transition: 0.3s;
 }
 .header-banner img:hover {
   opacity: 0.9;
 }
 .header-title {
-  margin-left: 10%;
-  margin-bottom: 20px;
-  padding: 20px;
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: clamp(12px, 3vw, 30px);
+  /* aligns the title box with the left edge of the text column */
+  left: max(var(--gutter), calc((100% - var(--content-width)) / 2));
+  max-width: calc(100% - 2 * var(--gutter));
+  padding: clamp(10px, 2vw, 20px);
   text-decoration: none;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.5)
+  text-align: left;
+  line-height: 1.25;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.header-name {
+  display: block;
+  color: #222;
+  font-size: clamp(24px, 5vw, 43px);
+  font-weight: bold;
+}
+.header-subtitle {
+  display: block;
+  color: #444;
+  font-size: clamp(15px, 2.8vw, 24px);
 }
 
 
 /* ---------- general design: main ---------- */
 main {
-    width: 70%;
-    margin: auto;
-    padding: 25px;
-
-    color: #333;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 10px var(--gutter) 40px;
+  color: #333;
+  text-align: justify;
+  overflow-wrap: break-word;
+}
+main::after {           /* contain floated photos */
+  content: "";
+  display: table;
+  clear: both;
 }
 main a {
   color: #111;
@@ -105,6 +134,11 @@ main a {
 main a:hover {
   text-decoration: underline;
 }
+main h1,
+main h2 {
+  text-align: left;
+  line-height: 1.25;
+}
 main h1 {
   margin-top: 40px;
 }
@@ -112,38 +146,24 @@ main h2 {
   margin-top: 60px;
 }
 
-/* ---------- responsive design ---------- */
-@media (max-width: 1200px) {
-  nav {
-    padding: 0 25px;
-  }
-
-  .header-banner a {
-    padding: 0 25px;
-  }
-
-  main {
-    width: 98%;
-    margin: 0;
-    padding: 5px;
-  }
-}
-
 /* ---------- individual design: profile picture ---------- */
 .profile {
   width: 300px;
-  margin: 20px;
+  max-width: 40%;
+  margin: 20px 25px 10px 0;
   float: left;
 }
 
 .profilesmall {
   width: 150px;
-  margin: 20px;
+  max-width: 35%;
+  margin: 20px 25px 10px 0;
   float: left;
 }
 
 .profile img,
 .profilesmall img {
+  display: block;
   width: 100%;
   border-radius: 100px;
   object-fit: cover;
@@ -153,6 +173,7 @@ main h2 {
 /* ---------- individual design: plot ---------- */
 .plot {
   width: 390px;
+  max-width: 100%;
   margin: 5px;
   float: left;
 }
@@ -162,105 +183,57 @@ main h2 {
   opacity: 1.0;
 }
 
-
-.plot_center_big {
-  width: 500px;
-  text-align: center;   /* centers inline elements like <img> */
-  margin: 1em auto;        /* adds vertical spacing */
-}
-
-.plot_center_big img {
-  display: inline-block;
-  max-width: 100%;      /* optional, makes it responsive */
-  height: auto;
-}
-
-
+/* Centered figures: fixed size on large screens, full width on small ones */
+.plot_center,
+.plot_center_big,
 .plot_center_enormous {
-  width: 1000px;
-  text-align: center;   /* centers inline elements like <img> */
-  margin: 1em auto;        /* adds vertical spacing */
+  width: 100%;
+  margin: 1em auto;
+  text-align: center;
 }
+.plot_center          { max-width: 390px; }
+.plot_center_big      { max-width: 500px; }
+.plot_center_enormous { max-width: 1000px; }
 
+.plot_center img,
+.plot_center_big img,
 .plot_center_enormous img {
-  display: inline-block;
-  max-width: 100%;      /* optional, makes it responsive */
-  height: auto;
-}
-
-
-.plot_side_by_side {
-  display: flex;
-  justify-content: center;   /* center all images as a group */
-  align-items: center;       /* align portrait and landscape bottoms */
-  gap: 1em;                  /* spacing between images */
-  margin: 1em auto;
-  max-width: 750px;
-  max-height: 450px;
-}
-
-.plot_side_by_side img {
-  flex: 0 0 auto;           
-  object-fit: contain;
-
-  /* New key: fix height instead of width */
-  max-height: 450px;         /* all images match in height */
-  width: auto;               /* width adjusts to aspect ratio */
-}
-
-/* When there are 2 images, cap container width so they don’t spread too far */
-.plot_side_by_side.two img {
-  max-height: 350px;         /* optional: a bit smaller for 2 */
-}
-
-/* When there are 3 images, same height but they’ll fit tighter */
-.plot_side_by_side.three img {
-  max-height: 350px;
-}
-
-
-.plot_side_by_side_small {
-  display: flex;
-  justify-content: center;   /* center all images as a group */
-  align-items: center;       /* align portrait and landscape bottoms */
-  gap: 1em;                  /* spacing between images */
-  margin: 1em auto;
-  max-width: 375px;
-  max-height: 225px;
-}
-
-.plot_side_by_side_small img {
-  flex: 0 0 auto;           
-  object-fit: contain;
-
-  /* New key: fix height instead of width */
-  max-height: 225px;         /* all images match in height */
-  width: auto;               /* width adjusts to aspect ratio */
-}
-
-/* When there are 2 images, cap container width so they don’t spread too far */
-.plot_side_by_side_small.two img {
-  max-height: 175px;         /* optional: a bit smaller for 2 */
-}
-
-/* When there are 3 images, same height but they’ll fit tighter */
-.plot_side_by_side_small.three img {
-  max-height: 175px;
-}
-
-
-
-.plot_center {
-  width: 390px;
-  text-align: center;   /* centers inline elements like <img> */
-  margin: 1em auto;     /* adds vertical spacing */
-}
-
-.plot_center img {
   display: inline-block;
   max-width: 100%;
   height: auto;
 }
+
+
+/* Rows of photos: same height side by side. On narrow screens the whole row
+   shrinks proportionally (flex-shrink is weighted by size), so heights stay equal. */
+.plot_side_by_side,
+.plot_side_by_side_small {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin: 1em auto;
+}
+.plot_side_by_side       { max-width: 750px; }
+.plot_side_by_side_small { max-width: 375px; }
+
+.plot_side_by_side img,
+.plot_side_by_side_small img {
+  flex: 0 1 auto;
+  min-width: 0;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.plot_side_by_side img              { max-height: 450px; }
+.plot_side_by_side.two img,
+.plot_side_by_side.three img        { max-height: 350px; }
+.plot_side_by_side_small img        { max-height: 225px; }
+.plot_side_by_side_small.two img,
+.plot_side_by_side_small.three img  { max-height: 175px; }
+
 
 /* Clickable box */
 .click-box {
@@ -268,13 +241,14 @@ main h2 {
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 20px;
-  text-align: center;        /* center text and image */
-  width: 420px;
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   margin: 2em auto;
-  position: relative;        /* for the click-hint */
+  position: relative;
 }
 
 .click-box:hover {
@@ -282,7 +256,6 @@ main h2 {
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/* Optional small "click hint" */
 .click-hint {
   font-size: 0.85em;
   color: #666;
@@ -291,9 +264,9 @@ main h2 {
 }
 
 
-
 .plot_2 {
   width: 250px;
+  max-width: 100%;
   height: 400px;
   margin: 15px;
   float: left;
@@ -317,11 +290,13 @@ main h2 {
   padding: 12px 24px 12px 24px;
   border: 1px solid #eeeeee;
   text-align: left;
+  vertical-align: top;
 }
 
 /* ---------- individual design: card ---------- */
 .card {
   width: 320px;
+  max-width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   display: inline-block;
@@ -331,44 +306,34 @@ main h2 {
 }
 .card img {
   width: 100%;
-  }
+}
 .card-text {
   padding: 2px 16px;
 }
 
 
 /* ------- openable pictures -------- */
-/* The grid: Four equal columns that floats next to each other */
 .column {
   float: left;
   width: 30%;
   padding: 10px;
 }
-
-/* Style the images inside the grid */
 .column img {
-  opacity: 0.9; 
-  cursor: pointer; 
+  opacity: 0.9;
+  cursor: pointer;
 }
-
 .column img:hover {
   opacity: 1;
 }
-
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-
-/* The expanding image container */
 .container {
   position: absolute;
   display: none;
 }
-
-/* Expanding image text */
 #imgtext {
   position: absolute;
   bottom: 15px;
@@ -376,8 +341,6 @@ main h2 {
   color: white;
   font-size: 20px;
 }
-
-/* Closable button inside the expanded image */
 .closebtn {
   position: absolute;
   top: 10px;
@@ -389,18 +352,88 @@ main h2 {
 
 /* ------- VIDEOS ------- */
 .video-container {
-  position: relative;
-  width: 70%;            /* smaller relative width */
-  max-width: 600px;      /* lower cap on large screens */
-  margin: 1em auto;      /* centers horizontally */
-  padding-top: 35%;   /* 16:9 aspect ratio */
+  width: 100%;
+  max-width: 600px;
+  margin: 1em auto;
+  aspect-ratio: 16 / 9;
 }
-
 .video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: block;
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+
+/* =========================================================
+   Responsive design
+   ========================================================= */
+
+/* Tablets and small laptops */
+@media (max-width: 800px) {
+  nav ul {
+    justify-content: center;
+  }
+  nav li a {
+    padding: 12px 10px;
+  }
+  .table td {
+    padding: 10px 12px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  :root {
+    --gutter: 16px;
+  }
+
+  nav {
+    font-size: 0.85rem;
+  }
+  nav li a {
+    padding: 10px 8px;
+  }
+
+  /* Justified text leaves big gaps on narrow screens */
+  main {
+    text-align: left;
+  }
+  main h1 {
+    font-size: 1.6em;
+    margin-top: 32px;
+  }
+  main h2 {
+    font-size: 1.3em;
+    margin-top: 40px;
+  }
+
+  /* Photo on top, centered, text below */
+  .profile,
+  .profilesmall {
+    float: none;
+    max-width: none;
+    margin: 20px auto 10px;
+  }
+  .profile      { width: 220px; }
+  .profilesmall { width: 140px; }
+
+  .plot_side_by_side,
+  .plot_side_by_side_small {
+    gap: 0.5em;
+  }
+
+  .click-box {
+    padding: 14px;
+  }
+  .click-box:hover {
+    transform: none;
+  }
+
+  .table {
+    font-size: 0.95em;
+  }
+  .table td {
+    padding: 8px 8px;
+  }
 }
