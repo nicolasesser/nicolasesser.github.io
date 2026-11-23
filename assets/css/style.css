@@ -98,7 +98,7 @@ nav li a:hover {
   height: clamp(180px, 28vw, 320px);
   object-fit: cover;
   opacity: 1.0;
-  transition: 0.3s;
+  transition: opacity 0.3s;   /* opacity only, so the banner doesn't animate on resize */
 }
 .header-banner img:hover {
   opacity: 0.9;
@@ -228,6 +228,29 @@ main h2 {
     width: 260px;
     max-width: none;
     margin: 20px auto 10px;
+  }
+}
+
+/* ---------- individual design: CV page intro ---------- */
+/* Photo and intro text side by side; everything after starts below the photo */
+.cv-intro-text h2 { margin-top: 0; }
+
+@media (min-width: 601px) {
+  .cv-intro {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-top: 25px;
+  }
+  .cv-intro .profilesmall {
+    float: none;
+    flex: 0 0 150px;
+    max-width: none;
+    margin: 0;
+  }
+  .cv-intro-text {
+    flex: 1;
+    min-width: 0;
   }
 }
 
