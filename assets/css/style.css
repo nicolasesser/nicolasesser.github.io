@@ -189,6 +189,48 @@ main h2 {
   opacity: 1.0;
 }
 
+/* ---------- individual design: home page intro ---------- */
+/* Photo and text in two columns of the same height: the photo is cropped to
+   follow the text. On tablets and phones the photo sits on top of the text. */
+.intro-text > p:first-child { margin-top: 0; }
+.intro-text > p:last-child  { margin-bottom: 0; }
+
+@media (min-width: 901px) {
+  .intro {
+    display: flex;
+    align-items: stretch;
+    gap: 32px;
+    margin-top: 25px;
+  }
+  .intro .profile {
+    position: relative;
+    float: none;
+    flex: 0 0 40%;
+    width: auto;
+    max-width: none;
+    margin: 0;
+  }
+  .intro .profile img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-position: 45% 50%;   /* which part of the photo stays visible */
+  }
+  .intro-text {
+    flex: 1;
+    min-width: 0;
+  }
+}
+@media (max-width: 900px) {
+  .intro .profile {
+    float: none;
+    width: 260px;
+    max-width: none;
+    margin: 20px auto 10px;
+  }
+}
+
 /* ---------- individual design: plot ---------- */
 .plot {
   width: 390px;
